@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Search, Bell, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -42,7 +41,6 @@ const Navbar = () => {
           <Link to="/tv-shows" className="text-netflix-white hover:text-gray-300">TV Shows</Link>
           <Link to="/movies" className="text-netflix-white hover:text-gray-300">Movies</Link>
           <Link to="/new-and-popular" className="text-netflix-white hover:text-gray-300">New & Popular</Link>
-          <Link to="/my-list" className="text-netflix-white hover:text-gray-300">My List</Link>
         </div>
       </div>
       
