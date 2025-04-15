@@ -39,10 +39,10 @@ const Navbar = () => {
         </Link>
         <div className="hidden md:flex items-center space-x-4 text-sm">
           <Link to="/" className="text-netflix-white hover:text-gray-300">Home</Link>
-          <Link to="/" className="text-netflix-white hover:text-gray-300">TV Shows</Link>
-          <Link to="/" className="text-netflix-white hover:text-gray-300">Movies</Link>
-          <Link to="/" className="text-netflix-white hover:text-gray-300">New & Popular</Link>
-          <Link to="/" className="text-netflix-white hover:text-gray-300">My List</Link>
+          <Link to="/tv-shows" className="text-netflix-white hover:text-gray-300">TV Shows</Link>
+          <Link to="/movies" className="text-netflix-white hover:text-gray-300">Movies</Link>
+          <Link to="/new-and-popular" className="text-netflix-white hover:text-gray-300">New & Popular</Link>
+          <Link to="/my-list" className="text-netflix-white hover:text-gray-300">My List</Link>
         </div>
       </div>
       
