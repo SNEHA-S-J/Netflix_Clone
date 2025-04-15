@@ -1,4 +1,3 @@
-
 export interface Movie {
   id: number;
   title: string;
@@ -182,3 +181,5 @@ export const popularFilters = [
   "Based on True Story"
 ];
 
+// Add the featuredMovie export at the end of the file
+export const featuredMovie = movies.find(movie => movie.isTrending) || movies[0];
