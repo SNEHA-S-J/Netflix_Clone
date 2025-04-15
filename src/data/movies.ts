@@ -129,30 +129,56 @@ export const movies: Movie[] = [
 
 export const categories: Category[] = [
   {
-    id: "trending",
-    title: "Trending Now",
-    movies: movies.filter(movie => movie.isTrending)
-  },
-  {
-    id: "new",
+    id: "new-releases",
     title: "New Releases",
     movies: movies.filter(movie => movie.isNew)
   },
   {
-    id: "topRated",
+    id: "top-rated",
     title: "Top Rated",
     movies: [...movies].sort((a, b) => b.rating - a.rating).slice(0, 5)
   },
   {
-    id: "action",
-    title: "Action",
-    movies: movies.filter(movie => movie.genre.includes("Action"))
+    id: "action-adventure",
+    title: "Action & Adventure",
+    movies: movies.filter(movie => movie.genre.some(g => ["Action", "Adventure"].includes(g)))
+  },
+  {
+    id: "crime-thriller",
+    title: "Crime & Thriller",
+    movies: movies.filter(movie => movie.genre.some(g => ["Crime", "Thriller"].includes(g)))
+  },
+  {
+    id: "scifi-fantasy",
+    title: "Sci-Fi & Fantasy",
+    movies: movies.filter(movie => movie.genre.some(g => ["Sci-Fi", "Fantasy"].includes(g)))
   },
   {
     id: "drama",
     title: "Drama",
     movies: movies.filter(movie => movie.genre.includes("Drama"))
+  },
+  {
+    id: "fan-favorites",
+    title: "Fan Favorites",
+    movies: movies.filter(movie => movie.rating >= 4.7)
   }
 ];
 
-export const featuredMovie = movies[0];
+export const tvShowCategories = [
+  "New Releases",
+  "Top Rated",
+  "Action & Adventure",
+  "Crime & Thriller",
+  "Sci-Fi & Fantasy",
+  "Drama",
+  "Fan Favorites"
+];
+
+export const popularFilters = [
+  "Available in 4K",
+  "Netflix Originals",
+  "Dubbed in Hindi",
+  "Based on True Story"
+];
+
