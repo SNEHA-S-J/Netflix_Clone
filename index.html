@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +22,29 @@
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        window.AgentInitializer.init({
+          rootId: "JotformAgent-01963a0d1b7a76dd80b02ab8938efa315a51",
+          formID: "01963a0d1b7a76dd80b02ab8938efa315a51",
+          queryParams: ["skipWelcome=1", "maximizable=1"],
+          domain: "https:\/\/www.jotform.com",
+          isInitialOpen: false,
+          isDraggable: false,
+          background: "linear-gradient(180deg,  #E50914 0%,  #E50914 100%)",
+          buttonBackgroundColor: "#d0021b",
+          buttonIconColor: "#F7FFE9",
+          variant: false,
+          customizations: {
+            greeting: "Yes",
+            greetingMessage: "Hi! How can I assist you?",
+            pulse: "Yes",
+            position: "right"
+          }
+        });
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
