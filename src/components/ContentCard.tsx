@@ -12,30 +12,31 @@ const ContentCard = ({ movie }: ContentCardProps) => {
 
   return (
     <div
-      className="flex-shrink-0 relative w-[200px] mr-2 transition-transform duration-300 movie-card-hover"
+      className="flex-shrink-0 relative w-[200px] mr-2 transition-all duration-300 transform hover:scale-105 z-10 hover:z-20"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
         src={movie.imageUrl}
         alt={movie.title}
-        className="w-full h-[120px] object-cover rounded-sm"
+        className="w-full h-[120px] object-cover rounded-t-md shadow-lg"
+        loading="lazy"
       />
       
       {isHovered && (
-        <div className="absolute -bottom-[100px] left-0 w-full h-auto bg-netflix-dark-gray rounded-b-md p-3 z-20 shadow-xl animate-fade-in">
+        <div className="absolute -bottom-[100px] left-0 w-full bg-netflix-dark-gray rounded-b-md p-3 shadow-xl animate-fade-in">
           <div className="flex space-x-2 mb-2">
-            <button className="bg-white text-black rounded-full p-1 hover:bg-white/90">
-              <Play size={16} />
+            <button className="bg-white text-black rounded-full p-1.5 hover:bg-white/90 transition-colors">
+              <Play size={18} />
             </button>
-            <button className="border border-gray-400 rounded-full p-1 hover:border-white">
-              <Plus size={16} />
+            <button className="border border-gray-400 rounded-full p-1.5 hover:border-white transition-colors">
+              <Plus size={18} />
             </button>
-            <button className="border border-gray-400 rounded-full p-1 hover:border-white">
-              <ThumbsUp size={16} />
+            <button className="border border-gray-400 rounded-full p-1.5 hover:border-white transition-colors">
+              <ThumbsUp size={18} />
             </button>
-            <button className="ml-auto border border-gray-400 rounded-full p-1 hover:border-white">
-              <ChevronDown size={16} />
+            <button className="ml-auto border border-gray-400 rounded-full p-1.5 hover:border-white transition-colors">
+              <ChevronDown size={18} />
             </button>
           </div>
           <div className="flex items-center space-x-2 text-xs mb-2">
@@ -55,7 +56,7 @@ const ContentCard = ({ movie }: ContentCardProps) => {
       )}
       
       {movie.isNew && (
-        <div className="absolute top-1 right-1 bg-netflix-red text-white text-[10px] px-1 py-0.5 rounded">
+        <div className="absolute top-2 right-2 bg-netflix-red text-white text-xs px-2 py-1 rounded">
           NEW
         </div>
       )}
