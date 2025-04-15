@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -70,14 +71,22 @@
   }
 }
 
+@layer utilities {
+  /* Add the scrollbar-hide utility class definition */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
 @layer components {
   .content-row {
     @apply flex overflow-x-auto scrollbar-hide py-4;
     scroll-behavior: smooth;
-  }
-
-  .content-row::-webkit-scrollbar {
-    display: none;
   }
 
   .hero-gradient {
@@ -111,10 +120,6 @@
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-.content-row::-webkit-scrollbar {
-  display: none;
 }
 
 .hero-gradient {
