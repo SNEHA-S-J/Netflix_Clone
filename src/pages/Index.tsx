@@ -10,29 +10,6 @@ const Index = () => {
     document.title = 'Netflix Clone - Watch TV Shows & Movies';
   }, []);
 
-  const footerLinks = {
-    column1: [
-      { text: "Audio Description", href: "#" },
-      { text: "Investor Relations", href: "#" },
-      { text: "Legal Notices", href: "#" }
-    ],
-    column2: [
-      { text: "Help Center", href: "#" },
-      { text: "Jobs", href: "#" },
-      { text: "Cookie Preferences", href: "#" }
-    ],
-    column3: [
-      { text: "Gift Cards", href: "#" },
-      { text: "Terms of Use", href: "#" },
-      { text: "Corporate Information", href: "#" }
-    ],
-    column4: [
-      { text: "Media Center", href: "#" },
-      { text: "Privacy", href: "#" },
-      { text: "Contact Us", href: "#" }
-    ]
-  };
-
   return (
     <div className="min-h-screen bg-netflix-black text-netflix-white">
       <Navbar />
@@ -51,59 +28,48 @@ const Index = () => {
         </div>
       </main>
       
-      <footer className="py-8 px-4 lg:px-8 text-gray-500 text-sm border-t border-gray-800">
+      <footer className="py-8 px-4 lg:px-8 text-gray-500 text-sm">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <ul className="space-y-2">
-                {footerLinks.column1.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="hover:text-gray-400 transition-colors">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-2">
-                {footerLinks.column2.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="hover:text-gray-400 transition-colors">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-2">
-                {footerLinks.column3.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="hover:text-gray-400 transition-colors">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <ul className="space-y-2">
-                {footerLinks.column4.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="hover:text-gray-400 transition-colors">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 text-xs">
+          <div className="flex items-center mb-4">
             <p>© {new Date().getFullYear()} Netflix Clone</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-gray-400">Audio Description</a></li>
+                <li><a href="#" className="hover:text-gray-400">Investor Relations</a></li>
+                <li><a href="#" className="hover:text-gray-400">Legal Notices</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-gray-400">Help Center</a></li>
+                <li><a href="#" className="hover:text-gray-400">Jobs</a></li>
+                <li><a href="#" className="hover:text-gray-400">Cookie Preferences</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-gray-400">Gift Cards</a></li>
+                <li><a href="#" className="hover:text-gray-400">Terms of Use</a></li>
+                <li><a href="#" className="hover:text-gray-400">Corporate Information</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-gray-400">Media Center</a></li>
+                <li><a href="#" className="hover:text-gray-400">Privacy</a></li>
+                <li><a href="#" className="hover:text-gray-400">Contact Us</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
+      
+      {/* Placeholder for future bot integration */}
+      <div className="hidden fixed right-4 bottom-4 z-50">
+        {/* Bot will be integrated here */}
+      </div>
     </div>
   );
 };

@@ -8,8 +8,8 @@ export interface Movie {
   year: number;
   duration: string;
   genre: string[];
+  isTrending?: boolean;
   isNew?: boolean;
-  isNetflixOriginal?: boolean;
 }
 
 export interface Category {
@@ -27,8 +27,8 @@ export const movies: Movie[] = [
     rating: 4.8,
     year: 2016,
     duration: "50m",
-    genre: ["Drama", "Horror", "Action"],
-    isNetflixOriginal: true
+    genre: ["Drama", "Fantasy", "Horror"],
+    isTrending: true
   },
   {
     id: 2,
@@ -49,7 +49,8 @@ export const movies: Movie[] = [
     rating: 4.6,
     year: 2017,
     duration: "1h 10m",
-    genre: ["Action", "Crime", "Drama"]
+    genre: ["Action", "Crime", "Mystery"],
+    isTrending: true
   },
   {
     id: 4,
@@ -70,27 +71,27 @@ export const movies: Movie[] = [
     rating: 4.9,
     year: 2017,
     duration: "1h",
-    genre: ["Drama", "Mystery", "Action"]
+    genre: ["Crime", "Drama", "Mystery"]
   },
   {
     id: 6,
-    title: "Squid Game",
-    description: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits with deadly high stakes.",
-    imageUrl: "https://images.unsplash.com/photo-1636663908580-d9d0e8f26766?w=800&h=450&fit=crop",
+    title: "Black Mirror",
+    description: "An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.",
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop",
     rating: 4.7,
-    year: 2021,
-    duration: "54m",
-    genre: ["Action", "Drama", "Mystery"]
+    year: 2011,
+    duration: "1h 2m",
+    genre: ["Drama", "Sci-Fi", "Thriller"]
   },
   {
     id: 7,
-    title: "Breaking Bad",
-    description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
-    imageUrl: "https://images.unsplash.com/photo-1554475901-6ffdcf804f16?w=800&h=450&fit=crop",
-    rating: 4.9,
-    year: 2008,
-    duration: "49m",
-    genre: ["Drama", "Crime", "Thriller"]
+    title: "Ozark",
+    description: "A financial adviser drags his family from Chicago to the Missouri Ozarks, where he must launder money to appease a drug boss.",
+    imageUrl: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=450&fit=crop",
+    rating: 4.6,
+    year: 2017,
+    duration: "56m",
+    genre: ["Crime", "Drama", "Thriller"]
   },
   {
     id: 8,
@@ -105,23 +106,24 @@ export const movies: Movie[] = [
   },
   {
     id: 9,
-    title: "Black Mirror",
-    description: "An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.",
-    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop",
-    rating: 4.7,
-    year: 2011,
-    duration: "1h 2m",
-    genre: ["Drama", "Sci-Fi", "Thriller"]
+    title: "Breaking Bad",
+    description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+    imageUrl: "https://images.unsplash.com/photo-1554475901-6ffdcf804f16?w=800&h=450&fit=crop",
+    rating: 4.9,
+    year: 2008,
+    duration: "49m",
+    genre: ["Crime", "Drama", "Thriller"]
   },
   {
     id: 10,
-    title: "Ozark",
-    description: "A financial adviser drags his family from Chicago to the Missouri Ozarks, where he must launder money to appease a drug boss.",
-    imageUrl: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=450&fit=crop",
-    rating: 4.6,
-    year: 2017,
-    duration: "56m",
-    genre: ["Crime", "Drama", "Thriller"]
+    title: "Squid Game",
+    description: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits with deadly high stakes.",
+    imageUrl: "https://images.unsplash.com/photo-1636663908580-d9d0e8f26766?w=800&h=450&fit=crop",
+    rating: 4.7,
+    year: 2021,
+    duration: "54m",
+    genre: ["Action", "Drama", "Mystery"],
+    isTrending: true
   }
 ];
 
@@ -129,15 +131,7 @@ export const categories: Category[] = [
   {
     id: "trending",
     title: "Trending Now",
-    movies: [
-      movies[0], // Stranger Things
-      movies[2], // Money Heist
-      movies[5], // Squid Game
-      movies[1], // The Crown
-      movies[6], // Breaking Bad
-      movies[7], // The Queen's Gambit
-      movies[0]  // Stranger Things (duplicate)
-    ]
+    movies: movies.filter(movie => movie.isTrending)
   },
   {
     id: "new",
@@ -147,14 +141,7 @@ export const categories: Category[] = [
   {
     id: "topRated",
     title: "Top Rated",
-    movies: [
-      movies[6], // Breaking Bad
-      movies[4], // Dark
-      movies[0], // Stranger Things
-      movies[7], // The Queen's Gambit
-      movies[1], // The Crown
-      movies[5]  // Squid Game
-    ]
+    movies: [...movies].sort((a, b) => b.rating - a.rating).slice(0, 5)
   },
   {
     id: "action",
@@ -165,20 +152,7 @@ export const categories: Category[] = [
     id: "drama",
     title: "Drama",
     movies: movies.filter(movie => movie.genre.includes("Drama"))
-  },
-  {
-    id: "myList",
-    title: "My List",
-    movies: [
-      movies[0], // Stranger Things
-      movies[7], // The Queen's Gambit
-      movies[2], // Money Heist
-      movies[3], // The Witcher
-      movies[6], // Breaking Bad
-      movies[4]  // Dark
-    ]
   }
 ];
 
-// Featured movie is Stranger Things (Netflix Original)
 export const featuredMovie = movies[0];
